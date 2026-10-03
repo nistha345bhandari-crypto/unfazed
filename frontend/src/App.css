@@ -1,0 +1,2561 @@
+/* =========================================
+   UNFAZED
+   Premium Mental-Health SaaS UI
+   Flexbox + CSS Grid
+   No Media Queries
+========================================= */
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f4f8f5 0%,
+            #edf5f1 50%,
+            #f7faf8 100%
+        );
+
+    color: #17231f;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+input,
+textarea,
+select {
+    outline: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================
+   COLOR SYSTEM
+========================================= */
+
+:root {
+    --green-900: #173f32;
+    --green-800: #1f5b4a;
+    --green-700: #28735d;
+    --green-600: #36856d;
+    --green-500: #4d9a80;
+
+    --green-soft: #e8f3ee;
+    --green-light: #f2f8f5;
+
+    --cream: #f8f5ef;
+    --white: #ffffff;
+
+    --text: #17231f;
+    --text-soft: #4f5f59;
+    --muted: #74827d;
+
+    --border: #dce6e1;
+
+    --danger: #a44848;
+    --danger-bg: #fff0f0;
+
+    --shadow-sm:
+        0 5px 18px rgba(31, 91, 74, 0.06);
+
+    --shadow:
+        0 10px 30px rgba(31, 91, 74, 0.08);
+
+    --shadow-lg:
+        0 18px 45px rgba(31, 91, 74, 0.12);
+}
+
+
+/* =========================================
+   GLOBAL
+========================================= */
+
+::selection {
+    background: #cfe5db;
+    color: var(--green-900);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #edf3f0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #b7ccc3;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--green-600);
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 17px 6%;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border-bottom: 1px solid var(--border);
+
+    box-shadow: 0 3px 15px rgba(31, 91, 74, 0.05);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar h1,
+.navbar-logo {
+    color: var(--green-900);
+
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-links a,
+.navbar-links button {
+    border: none;
+    background: transparent;
+
+    padding: 9px 13px;
+
+    color: var(--text-soft);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    border-radius: 9px;
+
+    transition: 0.2s ease;
+}
+
+.navbar-links a:hover,
+.navbar-links button:hover {
+    background: var(--green-soft);
+    color: var(--green-800);
+}
+
+
+/* =========================================
+   GENERAL PAGE
+========================================= */
+
+.page-container {
+    width: min(1180px, 94%);
+    margin: 0 auto;
+    padding: 35px 0 60px;
+}
+
+.container {
+    width: min(1180px, 94%);
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   DASHBOARD
+========================================= */
+
+.dashboard {
+    width: min(1180px, 94%);
+    margin: 0 auto;
+    padding: 35px 0 60px;
+}
+
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 28px;
+}
+
+.dashboard-header h1 {
+    color: var(--green-900);
+    font-size: 31px;
+    font-weight: 800;
+}
+
+.dashboard-header p {
+    margin-top: 5px;
+
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(230px, 1fr));
+
+    gap: 18px;
+}
+
+.dashboard-card {
+    padding: 22px;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    box-shadow: var(--shadow-sm);
+
+    transition: 0.2s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.dashboard-card h3 {
+    margin-bottom: 8px;
+
+    color: var(--green-800);
+    font-size: 14px;
+}
+
+.dashboard-card p {
+    color: var(--text-soft);
+    font-size: 14px;
+}
+
+
+/* =========================================
+   SECTION HEADER
+========================================= */
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    color: var(--green-900);
+    font-size: 23px;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.book-btn,
+.primary-btn,
+.green-btn {
+    border: none;
+    border-radius: 10px;
+
+    padding: 11px 17px;
+
+    background: var(--green-800);
+    color: white;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: 0.2s ease;
+}
+
+.book-btn:hover,
+.primary-btn:hover,
+.green-btn:hover {
+    background: var(--green-700);
+    transform: translateY(-1px);
+}
+
+.secondary-btn {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    padding: 10px 16px;
+
+    background: white;
+    color: var(--green-800);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: 0.2s ease;
+}
+
+.secondary-btn:hover {
+    background: var(--green-soft);
+}
+
+.danger-btn {
+    border: none;
+    border-radius: 9px;
+
+    padding: 9px 14px;
+
+    background: var(--danger-bg);
+    color: var(--danger);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   APPOINTMENTS
+========================================= */
+
+.appointment-list {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(290px, 1fr));
+
+    gap: 18px;
+}
+
+.appointment-card {
+    padding: 21px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+    border-radius: 17px;
+
+    box-shadow: var(--shadow-sm);
+
+    transition: 0.2s ease;
+}
+
+.appointment-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.appointment-card h3 {
+    margin-bottom: 10px;
+
+    color: var(--green-900);
+    font-size: 17px;
+}
+
+.appointment-card p {
+    margin-bottom: 6px;
+
+    color: var(--text-soft);
+    font-size: 13px;
+}
+
+.appointment-details {
+    display: grid;
+    gap: 7px;
+
+    margin-top: 13px;
+}
+
+.appointment-status {
+    display: inline-flex;
+
+    width: fit-content;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    background: var(--green-soft);
+    color: var(--green-800);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    text-transform: capitalize;
+}
+
+
+/* =========================================
+   PROFILE
+========================================= */
+
+.profile-card {
+    width: min(850px, 100%);
+
+    margin: 0 auto;
+
+    padding: 28px;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    box-shadow: var(--shadow);
+}
+
+.profile-card h1,
+.profile-card h2 {
+    color: var(--green-900);
+    margin-bottom: 18px;
+}
+
+.profile-info {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 14px;
+}
+
+.profile-info div {
+    padding: 14px;
+
+    background: var(--green-light);
+
+    border-radius: 12px;
+}
+
+.profile-info span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.profile-info strong {
+    color: var(--green-900);
+    font-size: 14px;
+}
+
+
+/* =========================================
+   FORMS
+========================================= */
+
+.form-container {
+    width: min(700px, 94%);
+    margin: 35px auto;
+}
+
+.form-card {
+    padding: 30px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    box-shadow: var(--shadow);
+}
+
+.form-card h1,
+.form-card h2 {
+    margin-bottom: 22px;
+
+    color: var(--green-900);
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--green-900);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid #d5e0db;
+    border-radius: 10px;
+
+    background: white;
+    color: var(--text);
+
+    font-size: 14px;
+
+    transition: 0.2s ease;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--green-600);
+
+    box-shadow:
+        0 0 0 3px rgba(54, 133, 109, 0.09);
+}
+
+
+/* =========================================
+   AUTH PAGES
+========================================= */
+
+.auth-page {
+    min-height: calc(100vh - 70px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 35px 20px;
+}
+
+.auth-card {
+    width: min(440px, 100%);
+
+    padding: 34px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border: 1px solid var(--border);
+    border-radius: 22px;
+
+    box-shadow: var(--shadow-lg);
+}
+
+.auth-card h1 {
+    margin-bottom: 8px;
+
+    color: var(--green-900);
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.auth-card > p {
+    margin-bottom: 25px;
+
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.auth-button {
+    width: 100%;
+
+    border: none;
+    border-radius: 10px;
+
+    padding: 12px;
+
+    background: var(--green-800);
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: 0.2s ease;
+}
+
+.auth-button:hover {
+    background: var(--green-700);
+    transform: translateY(-1px);
+}
+
+.auth-footer {
+    margin-top: 18px;
+
+    text-align: center;
+
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.auth-link {
+    border: none;
+    background: transparent;
+
+    padding: 0;
+    margin: 0;
+
+    color: var(--green-800);
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.auth-link:hover {
+    color: var(--green-700);
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   AUTH MESSAGES
+========================================= */
+
+.error-message,
+.auth-error {
+    margin-bottom: 15px;
+    padding: 11px 13px;
+
+    background: #fff1f1;
+
+    border: 1px solid #f1c3c3;
+    border-radius: 9px;
+
+    color: #a44848;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.success-message {
+    margin-bottom: 15px;
+    padding: 11px 13px;
+
+    background: #edf8f2;
+
+    border: 1px solid #c8e5d5;
+    border-radius: 9px;
+
+    color: #287052;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   ROLE SELECTION
+========================================= */
+
+.role-page {
+    min-height: 80vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px;
+}
+
+.role-container {
+    width: min(800px, 94%);
+}
+
+.role-container h1 {
+    margin-bottom: 10px;
+
+    text-align: center;
+
+    color: var(--green-900);
+    font-size: 32px;
+}
+
+.role-container > p {
+    margin-bottom: 30px;
+
+    text-align: center;
+
+    color: var(--muted);
+}
+
+.role-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 20px;
+}
+
+.role-card {
+    padding: 30px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow: var(--shadow-sm);
+
+    transition: 0.2s ease;
+}
+
+.role-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.role-card h2 {
+    margin-bottom: 10px;
+
+    color: var(--green-900);
+}
+
+.role-card p {
+    margin-bottom: 20px;
+
+    color: var(--muted);
+    font-size: 13px;
+}
+
+
+/* =========================================
+   BOOK APPOINTMENT
+========================================= */
+
+.booking-page {
+    width: min(900px, 94%);
+    margin: 0 auto;
+
+    padding: 35px 0 60px;
+}
+
+.booking-card {
+    padding: 28px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    box-shadow: var(--shadow);
+}
+
+.booking-card h1 {
+    margin-bottom: 22px;
+    color: var(--green-900);
+}
+
+.availability-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
+
+    gap: 12px;
+}
+
+.availability-card {
+    padding: 15px;
+
+    background: var(--green-light);
+
+    border: 1px solid #d9e7e1;
+    border-radius: 12px;
+
+    transition: 0.2s ease;
+}
+
+.availability-card:hover {
+    border-color: var(--green-600);
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   PACKAGES
+========================================= */
+
+.package-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(230px, 1fr));
+
+    gap: 18px;
+}
+
+.package-card {
+    padding: 25px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    box-shadow: var(--shadow-sm);
+
+    transition: 0.2s ease;
+}
+
+.package-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.package-card h2 {
+    color: var(--green-900);
+}
+
+.package-price {
+    margin: 12px 0;
+
+    color: var(--green-800);
+
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.package-card p {
+    margin-bottom: 15px;
+
+    color: var(--muted);
+    font-size: 13px;
+}
+
+
+/* =========================================
+   THERAPIST CLIENTS
+========================================= */
+
+.clients-page {
+    width: min(1100px, 94%);
+    margin: 0 auto;
+
+    padding: 35px 0 60px;
+}
+
+.clients-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 18px;
+}
+
+.client-card {
+    padding: 22px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+    border-radius: 17px;
+
+    box-shadow: var(--shadow-sm);
+
+    transition: 0.2s ease;
+}
+
+.client-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.client-card h3 {
+    margin-bottom: 8px;
+    color: var(--green-900);
+}
+
+.client-card p {
+    margin-bottom: 5px;
+
+    color: var(--text-soft);
+    font-size: 13px;
+}
+
+
+/* =========================================
+   CLIENT DETAILS
+========================================= */
+
+.client-details-page {
+    width: min(1050px, 94%);
+    margin: 0 auto;
+
+    padding: 35px 0 60px;
+}
+
+.client-details-card {
+    padding: 25px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    box-shadow: var(--shadow);
+}
+
+.client-details-card h1,
+.client-details-card h2 {
+    color: var(--green-900);
+}
+
+.client-details-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+
+/* =========================================
+   CLINICAL SESSION NOTES
+========================================= */
+
+.session-notes-page {
+    width: min(1100px, 94%);
+    margin: 0 auto;
+
+    padding: 40px 0 70px;
+}
+
+.session-notes-header {
+    margin-bottom: 28px;
+}
+
+.session-notes-header h1 {
+    margin-bottom: 8px;
+
+    color: var(--green-900);
+
+    font-size: 34px;
+    font-weight: 800;
+}
+
+.session-notes-header p {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+
+/* PATIENT */
+
+.session-patient-card {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 18px 22px;
+    margin-bottom: 30px;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    border: 1px solid rgba(31, 91, 74, 0.12);
+    border-radius: 18px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.session-patient-avatar {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: var(--green-800);
+    color: white;
+
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.session-patient-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.session-patient-info span {
+    color: var(--muted);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.session-patient-info strong {
+    color: var(--green-900);
+    font-size: 18px;
+}
+
+.session-patient-info p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+
+/* ERROR */
+
+.session-error {
+    margin-bottom: 20px;
+
+    padding: 13px 16px;
+
+    background: #fff1f1;
+
+    border: 1px solid #f1b5b5;
+    border-radius: 12px;
+
+    color: #a33a3a;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* SECTION */
+
+.session-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 18px;
+}
+
+.session-section-header h2 {
+    margin: 0;
+
+    color: var(--green-900);
+
+    font-size: 24px;
+}
+
+
+/* CREATE */
+
+.create-note-btn {
+    border: none;
+    border-radius: 10px;
+
+    padding: 11px 18px;
+
+    background: var(--green-800);
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: 0.2s ease;
+}
+
+.create-note-btn:hover {
+    background: var(--green-700);
+    transform: translateY(-1px);
+}
+
+
+/* FORM */
+
+.session-note-form {
+    margin-bottom: 38px;
+    padding: 28px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border: 1px solid rgba(31, 91, 74, 0.12);
+    border-radius: 20px;
+
+    box-shadow: var(--shadow);
+}
+
+.session-note-form h3 {
+    margin-bottom: 24px;
+
+    color: var(--green-900);
+
+    font-size: 21px;
+}
+
+
+/* SESSION FORM OVERRIDE */
+
+.session-note-form .form-group {
+    margin-bottom: 20px;
+}
+
+.session-note-form .form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--green-900);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.session-note-form .form-group input,
+.session-note-form .form-group textarea,
+.session-note-form .form-group select {
+    width: 100%;
+
+    border: 1px solid #d7dfdc;
+    border-radius: 11px;
+
+    padding: 12px 14px;
+
+    background: white;
+    color: var(--text);
+
+    font-size: 14px;
+
+    transition: 0.2s ease;
+}
+
+.session-note-form .form-group input:focus,
+.session-note-form .form-group textarea:focus,
+.session-note-form .form-group select:focus {
+    border-color: var(--green-700);
+
+    box-shadow:
+        0 0 0 3px rgba(31, 91, 74, 0.08);
+}
+
+.session-note-form .form-group textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+
+/* CLINICAL */
+
+.clinical-fields {
+    margin-top: 24px;
+    padding: 22px;
+
+    background: #f6faf8;
+
+    border: 1px solid #dce8e3;
+    border-radius: 16px;
+}
+
+.clinical-fields h4 {
+    margin-bottom: 20px;
+
+    color: var(--green-900);
+
+    font-size: 17px;
+}
+
+
+/* FORM ACTIONS */
+
+.session-form-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 8px;
+}
+
+.session-save-btn,
+.session-cancel-btn {
+    border: none;
+    border-radius: 10px;
+
+    padding: 11px 18px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: 0.2s ease;
+}
+
+.session-save-btn {
+    background: var(--green-800);
+    color: white;
+}
+
+.session-save-btn:hover {
+    background: var(--green-700);
+    transform: translateY(-1px);
+}
+
+.session-cancel-btn {
+    background: #edf1ef;
+    color: #40504b;
+}
+
+.session-cancel-btn:hover {
+    background: #e1e8e5;
+}
+
+
+/* EMPTY NOTES */
+
+.no-notes-card {
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.82);
+
+    border: 1px dashed #c8d8d1;
+    border-radius: 18px;
+}
+
+.no-notes-card h3 {
+    margin-bottom: 7px;
+
+    color: var(--green-900);
+    font-size: 18px;
+}
+
+.no-notes-card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+
+/* NOTE CARD */
+
+.session-note-card {
+    margin-bottom: 20px;
+    padding: 24px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border: 1px solid rgba(31, 91, 74, 0.12);
+    border-radius: 18px;
+
+    box-shadow: var(--shadow-sm);
+
+    transition: 0.2s ease;
+}
+
+.session-note-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.session-note-card h3 {
+    margin-bottom: 12px;
+
+    color: var(--green-900);
+    font-size: 19px;
+}
+
+
+/* META */
+
+.session-note-meta {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 16px;
+}
+
+.note-badge {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    background: #edf4f1;
+    color: var(--green-800);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    text-transform: capitalize;
+}
+
+.note-badge.shared {
+    background: #e4f4ec;
+    color: #27704f;
+}
+
+.note-badge.private {
+    background: #f0f1f1;
+    color: #59635f;
+}
+
+
+/* CONTENT */
+
+.session-note-content {
+    margin-bottom: 20px;
+
+    color: #4b5854;
+
+    font-size: 14px;
+    line-height: 1.7;
+
+    white-space: pre-wrap;
+}
+
+
+/* CLINICAL SUMMARY */
+
+.clinical-summary {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+}
+
+.clinical-summary-item {
+    padding: 15px;
+
+    background: #f7faf8;
+
+    border: 1px solid #e0e8e4;
+    border-radius: 12px;
+}
+
+.clinical-summary-item span {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--green-800);
+
+    font-size: 12px;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.clinical-summary-item p {
+    margin: 0;
+
+    color: #4b5854;
+
+    font-size: 13px;
+    line-height: 1.6;
+
+    white-space: pre-wrap;
+}
+
+
+/* NOTE ACTIONS */
+
+.session-note-actions {
+    display: flex;
+    gap: 9px;
+
+    padding-top: 17px;
+
+    border-top: 1px solid #e6ece9;
+}
+
+.note-edit-btn,
+.note-delete-btn {
+    border: none;
+    border-radius: 9px;
+
+    padding: 9px 15px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: 0.2s ease;
+}
+
+.note-edit-btn {
+    background: #eaf2ef;
+    color: var(--green-800);
+}
+
+.note-edit-btn:hover {
+    background: #dceae4;
+}
+
+.note-delete-btn {
+    background: #fff0f0;
+    color: #a34848;
+}
+
+.note-delete-btn:hover {
+    background: #ffe0e0;
+}
+
+
+/* =========================================
+   SHARED SESSION NOTES
+========================================= */
+
+.shared-notes-page {
+    width: min(1050px, 94%);
+    margin: 0 auto;
+
+    padding: 40px 0 70px;
+}
+
+.shared-notes-page h1 {
+    margin-bottom: 25px;
+
+    color: var(--green-900);
+    font-size: 32px;
+}
+
+.shared-note-card {
+    margin-bottom: 20px;
+    padding: 25px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.shared-note-card h2 {
+    margin-bottom: 12px;
+
+    color: var(--green-900);
+}
+
+.shared-note-card p {
+    margin-bottom: 8px;
+
+    color: var(--text-soft);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   LOADING
+========================================= */
+
+.loading-page {
+    min-height: 60vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--green-800);
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   EMPTY STATES
+========================================= */
+
+.empty-state {
+    padding: 40px 20px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.8);
+
+    border: 1px dashed #cbdad4;
+    border-radius: 17px;
+}
+
+.empty-state h3 {
+    margin-bottom: 7px;
+    color: var(--green-900);
+}
+
+.empty-state p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+
+/* =========================================
+   DISABLED STATES
+========================================= */
+
+button:disabled,
+input:disabled,
+select:disabled,
+textarea:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+
+/* =========================================
+   FOCUS
+========================================= */
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+a:focus-visible {
+    outline: 3px solid rgba(54, 133, 109, 0.22);
+    outline-offset: 2px;
+}
+
+
+/* =========================================
+   MOBILE-FRIENDLY GRID WITHOUT MEDIA QUERY
+========================================= */
+
+.dashboard-grid,
+.clients-grid,
+.package-grid,
+.appointment-list,
+.role-grid {
+    grid-template-columns:
+        repeat(auto-fit, minmax(230px, 1fr));
+}
+
+.clinical-summary {
+    grid-template-columns:
+        repeat(auto-fit, minmax(230px, 1fr));
+}
+
+
+/* =========================================
+   TOUCH / ACTIVE
+========================================= */
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   AUTH LINK
+========================================= */
+
+.auth-link {
+    border: none;
+    background: transparent;
+
+    padding: 0;
+    margin: 0;
+
+    color: var(--green-800);
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.auth-link:hover {
+    color: var(--green-700);
+    text-decoration: underline;
+    transform: translateY(-1px);
+}
+
+.auth-link:active {
+    transform: translateY(0);
+}
+/* =========================================
+   PATIENT SHARED SESSION NOTES
+========================================= */
+
+.shared-notes-page {
+    width: min(1000px, 94%);
+    margin: 0 auto;
+
+    padding: 40px 0 70px;
+}
+
+.shared-notes-header {
+    margin-bottom: 28px;
+}
+
+.shared-notes-header h1 {
+    margin-bottom: 8px;
+
+    color: var(--green-900);
+
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.shared-notes-header p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+
+/* EMPTY STATE */
+
+.no-shared-notes {
+    padding: 45px 25px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    border: 1px dashed #c8d8d1;
+    border-radius: 20px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+.no-shared-notes-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 15px;
+
+    border-radius: 50%;
+
+    background: var(--green-soft);
+    color: var(--green-800);
+
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.no-shared-notes h2 {
+    margin-bottom: 7px;
+
+    color: var(--green-900);
+    font-size: 20px;
+}
+
+.no-shared-notes p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+
+/* NOTES LIST */
+
+.shared-notes-list {
+    display: grid;
+    gap: 20px;
+}
+
+
+/* NOTE CARD */
+
+.shared-note-card {
+    padding: 25px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border: 1px solid rgba(31, 91, 74, 0.12);
+    border-radius: 20px;
+
+    box-shadow: var(--shadow-sm);
+
+    transition: 0.2s ease;
+}
+
+.shared-note-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+
+/* HEADER */
+
+.shared-note-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-bottom: 17px;
+
+    border-bottom: 1px solid #e5ece8;
+}
+
+.shared-note-header h2 {
+    margin-bottom: 5px;
+
+    color: var(--green-900);
+
+    font-size: 20px;
+}
+
+.shared-note-date {
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* BADGE */
+
+.shared-note-badge {
+    padding: 6px 11px;
+
+    border-radius: 20px;
+
+    background: #e4f4ec;
+    color: #27704f;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    text-transform: uppercase;
+}
+
+
+/* THERAPIST + TYPE */
+
+.shared-note-therapist,
+.shared-note-type {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #edf1ef;
+}
+
+.shared-note-therapist span,
+.shared-note-type span {
+    color: var(--muted);
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.shared-note-therapist strong,
+.shared-note-type strong {
+    color: var(--green-800);
+
+    font-size: 13px;
+}
+
+
+/* CONTENT */
+
+.shared-note-content {
+    padding: 20px 0;
+}
+
+.shared-note-content h3 {
+    margin-bottom: 9px;
+
+    color: var(--green-900);
+
+    font-size: 15px;
+}
+
+.shared-note-content p {
+    margin: 0;
+
+    color: #4b5854;
+
+    font-size: 14px;
+    line-height: 1.7;
+
+    white-space: pre-wrap;
+}
+
+
+/* SOAP / DAP */
+
+.shared-clinical-section {
+    margin-top: 5px;
+    padding-top: 20px;
+
+    border-top: 1px solid #e5ece8;
+}
+
+.shared-clinical-section > h3 {
+    margin-bottom: 15px;
+
+    color: var(--green-900);
+
+    font-size: 16px;
+}
+
+.shared-clinical-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 12px;
+}
+
+.shared-clinical-item {
+    padding: 16px;
+
+    background: #f6faf8;
+
+    border: 1px solid #dfe9e4;
+    border-radius: 13px;
+}
+
+.shared-clinical-item span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--green-800);
+
+    font-size: 11px;
+    font-weight: 800;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.shared-clinical-item p {
+    margin: 0;
+
+    color: #4b5854;
+
+    font-size: 13px;
+    line-height: 1.6;
+
+    white-space: pre-wrap;
+}
+/* ======================================
+   ANALYTICS REVENUE CHART
+====================================== */
+
+.revenue-chart-card {
+    background: #ffffff;
+    border: 1px solid #dce5df;
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 12px 30px rgba(20, 60, 45, 0.06);
+}
+
+.revenue-chart-header {
+    margin-bottom: 30px;
+}
+
+.revenue-chart-header h3 {
+    margin-top: 8px;
+    font-size: 28px;
+    color: #164b3c;
+}
+
+.revenue-chart {
+    min-height: 260px;
+    display: flex;
+    align-items: flex-end;
+    gap: 35px;
+    padding: 20px 10px 0;
+    border-bottom: 1px solid #dce5df;
+}
+
+.revenue-column {
+    flex: 1;
+    min-width: 70px;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.revenue-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: #164b3c;
+    margin-bottom: 8px;
+}
+
+.revenue-bar-area {
+    width: 45px;
+    height: 160px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background: #eef5f1;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+}
+
+.revenue-bar {
+    width: 100%;
+    min-height: 8px;
+    background: #236b57;
+    border-radius: 12px 12px 0 0;
+    transition: height 0.3s ease;
+}
+
+.revenue-column span {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #6d7d77;
+    font-weight: 600;
+}
+/* ======================================
+   UPGRADE PROMPT
+====================================== */
+
+.upgrade-card {
+    max-width: 700px;
+    margin: 80px auto;
+    padding: 50px;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #dce5df;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(20, 60, 45, 0.08);
+}
+
+.upgrade-icon {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.upgrade-card h1 {
+    margin: 10px 0 15px;
+    color: #164b3c;
+}
+
+.upgrade-card p {
+    margin: 8px 0;
+    color: #61716b;
+}
+
+.upgrade-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+/* =========================================
+   THERAPIST DASHBOARD QUICK ACTIONS
+========================================= */
+
+.quick-actions-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.quick-actions-buttons .book-btn {
+    min-width: 150px;
+    text-align: center;
+}
+
+/* Slightly better spacing for the buttons */
+.quick-actions-buttons .book-btn:hover {
+    transform: translateY(-2px);
+}
+/* =========================================
+   SUBSCRIPTION PAGE
+========================================= */
+
+.subscription-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 30px;
+    align-items: stretch;
+}
+
+.subscription-card {
+    flex: 1 1 280px;
+    min-width: 0;
+
+    padding: 30px;
+
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(60, 80, 70, 0.1);
+    border-radius: 20px;
+
+    box-shadow: 0 10px 30px rgba(50, 70, 60, 0.07);
+
+    display: flex;
+    flex-direction: column;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.subscription-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 16px 38px rgba(50, 70, 60, 0.12);
+}
+
+
+/* =========================================
+   CARD CONTENT
+========================================= */
+
+.subscription-card h2 {
+    margin-bottom: 12px;
+
+    font-size: clamp(21px, 3vw, 26px);
+
+    color: #263a32;
+}
+
+.subscription-card > p {
+    color: #68756e;
+
+    font-size: 14px;
+    line-height: 1.7;
+
+    margin-bottom: 22px;
+}
+
+.subscription-card ul {
+    list-style: none;
+
+    padding: 0;
+    margin: 0 0 28px;
+
+    flex: 1;
+}
+
+.subscription-card li {
+    position: relative;
+
+    padding-left: 25px;
+    margin-bottom: 13px;
+
+    color: #4f5d56;
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.subscription-card li::before {
+    content: "✓";
+
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    font-weight: 700;
+    color: #5d806f;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.subscription-card .book-btn {
+    width: 100%;
+}
+
+.subscription-card .book-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* =========================================
+   PAGE HEADER
+========================================= */
+
+.page-header {
+    display: flex;
+    flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 30px;
+}
+
+.page-header > div {
+    flex: 1 1 300px;
+    min-width: 0;
+}
+
+.page-header h1 {
+    margin-bottom: 10px;
+
+    font-size: clamp(29px, 5vw, 42px);
+
+    line-height: 1.1;
+    letter-spacing: -1px;
+
+    color: #263a32;
+}
+
+.page-header > div > p:last-child {
+    color: #68756e;
+
+    font-size: 15px;
+    line-height: 1.7;
+
+    max-width: 650px;
+}
+
+
+/* =========================================
+   EYEBROW
+========================================= */
+
+.eyebrow {
+    display: inline-block;
+
+    margin-bottom: 10px;
+    padding: 6px 10px;
+
+    border-radius: 20px;
+    background: rgba(232, 240, 235, 0.75);
+
+    color: #5d806f;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+}
+
+
+/* =========================================
+   PAGE CONTAINER
+========================================= */
+
+.page-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 35px 5vw 60px;
+    box-sizing: border-box;
+}
+/* =========================================
+   PATIENT PACKAGES PAGE
+========================================= */
+
+.packages-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 5vw 70px;
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   PAGE HEADER
+========================================= */
+
+.packages-header {
+    margin-bottom: 40px;
+}
+
+.packages-header h1 {
+    margin: 8px 0 12px;
+
+    font-size: clamp(30px, 5vw, 44px);
+    line-height: 1.1;
+    letter-spacing: -1px;
+
+    color: #263a32;
+}
+
+.packages-header > p:last-child {
+    color: #68756e;
+
+    font-size: 15px;
+    line-height: 1.7;
+
+    max-width: 650px;
+}
+
+
+/* =========================================
+   SECTION HEADING
+========================================= */
+
+.section-heading {
+    display: flex;
+    flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 22px;
+}
+
+.section-heading h2 {
+    margin-top: 8px;
+
+    font-size: clamp(22px, 3vw, 28px);
+
+    color: #263a32;
+}
+
+
+/* =========================================
+   PACKAGE GRID
+========================================= */
+
+.packages-grid {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 24px;
+
+    align-items: stretch;
+}
+
+
+/* =========================================
+   PACKAGE CARD
+========================================= */
+
+.package-card {
+    flex: 1 1 280px;
+    min-width: 0;
+
+    padding: 28px;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(60, 80, 70, 0.1);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 30px rgba(50, 70, 60, 0.07);
+
+    display: flex;
+    flex-direction: column;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.package-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 16px 38px rgba(50, 70, 60, 0.12);
+}
+
+
+/* =========================================
+   PACKAGE CARD TOP
+========================================= */
+
+.package-card-top {
+    display: flex;
+    flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================
+   PACKAGE BADGE
+========================================= */
+
+.package-badge {
+    padding: 6px 11px;
+
+    border-radius: 20px;
+
+    background: rgba(232, 240, 235, 0.9);
+
+    color: #5d806f;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   PACKAGE PRICE
+========================================= */
+
+.package-price {
+    font-size: 20px;
+
+    font-weight: 800;
+
+    color: #263a32;
+}
+
+
+/* =========================================
+   PACKAGE TITLE
+========================================= */
+
+.package-card h3 {
+    margin-bottom: 10px;
+
+    font-size: clamp(20px, 3vw, 25px);
+
+    color: #263a32;
+}
+
+
+/* =========================================
+   PACKAGE TEXT
+========================================= */
+
+.package-card p {
+    color: #68756e;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   PACKAGE DETAILS
+========================================= */
+
+.package-details {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin: 20px 0;
+}
+
+.package-details span {
+    padding: 8px 12px;
+
+    border-radius: 10px;
+
+    background: #f1f5f2;
+
+    color: #53645b;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   PACKAGE BUTTON
+========================================= */
+
+.package-card .book-btn {
+    width: 100%;
+
+    margin-top: auto;
+}
+
+
+/* =========================================
+   EMPTY PACKAGE
+========================================= */
+
+.empty-package-card {
+    width: 100%;
+
+    padding: 45px 30px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    border: 1px solid rgba(60, 80, 70, 0.1);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 30px rgba(50, 70, 60, 0.06);
+}
+
+.empty-package-icon {
+    font-size: 42px;
+
+    margin-bottom: 15px;
+}
+
+.empty-package-card h3 {
+    margin-bottom: 10px;
+
+    color: #263a32;
+}
+
+.empty-package-card p {
+    max-width: 500px;
+
+    margin: 0 auto;
+
+    color: #68756e;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   LOADING
+========================================= */
+
+.loading-card {
+    width: 100%;
+
+    padding: 30px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    border-radius: 18px;
+
+    color: #68756e;
+
+    box-shadow:
+        0 10px 30px rgba(50, 70, 60, 0.06);
+}
+
+
+/* =========================================
+   SUCCESS / ERROR
+========================================= */
+
+.form-success,
+.form-error {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 15px 18px;
+
+    margin-bottom: 25px;
+
+    border-radius: 12px;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+.form-success {
+    background: #edf7f0;
+
+    border: 1px solid #cfe7d5;
+
+    color: #356246;
+}
+
+.form-error {
+    background: #fff1f1;
+
+    border: 1px solid #f0cccc;
+
+    color: #8a3d3d;
+}
+.patient-action-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.patient-action-buttons .book-btn {
+    min-width: 150px;
+    text-align: center;
+    white-space: nowrap;
+}
